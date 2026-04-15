@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>活動列表 — 善種 SeedGood</title>
+  <meta name="description" content="探索所有公益講座、志工活動、工作坊與社區行動，找到你想參與的善種活動。">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner container">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-mark">&#9672;</span>
+      <span class="logo-text">善種 <em>SeedGood</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="events.html" class="active">活動列表</a></li>
+      <li><a href="impact.html">成果展示</a></li>
+      <li><a href="about.html">關於我們</a></li>
+      <li><a href="events.html" class="nav-cta">立即報名</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="選單">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="events.html">活動列表</a></li>
+    <li><a href="impact.html">成果展示</a></li>
+    <li><a href="about.html">關於我們</a></li>
+    <li><a href="events.html" class="btn btn-primary">立即報名</a></li>
+  </ul>
+</div>
+
+<!-- Page Header -->
+<div class="page-header">
+  <div class="container">
+    <p class="section-eyebrow">探索與參與</p>
+    <h1 class="page-title">所有活動</h1>
+    <p class="page-subtitle">公益講座、志工活動、工作坊與社區行動——找到讓你心動的那一場</p>
+  </div>
+</div>
+
+<!-- Filter Bar -->
+<div class="filter-bar sticky-filter" id="filterBar">
+  <div class="container">
+    <div class="filter-inner">
+      <div class="filter-tabs" role="tablist">
+        <button class="filter-tab active" data-filter="all" role="tab">全部</button>
+        <button class="filter-tab" data-filter="lecture" role="tab">📚 公益講座</button>
+        <button class="filter-tab" data-filter="workshop" role="tab">🛠️ 工作坊</button>
+        <button class="filter-tab" data-filter="volunteer" role="tab">🤝 志工活動</button>
+        <button class="filter-tab" data-filter="community" role="tab">🌱 社區行動</button>
+        <button class="filter-tab" data-filter="online" role="tab">💻 線上活動</button>
+      </div>
+      <div class="filter-options">
+        <select class="filter-select" id="cityFilter" aria-label="選擇城市">
+          <option value="">所有城市</option>
+          <option value="taipei">台北市</option>
+          <option value="taichung">台中市</option>
+          <option value="kaohsiung">高雄市</option>
+          <option value="tainan">台南市</option>
+          <option value="online">線上</option>
+        </select>
+        <select class="filter-select" id="dateFilter" aria-label="選擇日期">
+          <option value="">所有日期</option>
+          <option value="this-week">本週</option>
+          <option value="this-month">本月</option>
+          <option value="next-month">下個月</option>
+        </select>
+        <select class="filter-select" id="modeFilter" aria-label="活動形式">
+          <option value="">所有形式</option>
+          <option value="physical">實體</option>
+          <option value="online">線上</option>
+          <option value="hybrid">混合</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Results Info -->
+<div class="container">
+  <div class="results-info">
+    <span id="resultsCount">顯示 9 個活動</span>
+    <div class="view-toggle">
+      <button class="view-btn active" id="gridView" title="格狀顯示">⊞</button>
+      <button class="view-btn" id="listView" title="列表顯示">≡</button>
+    </div>
+  </div>
+</div>
+
+<!-- Events Grid -->
+<section class="section-sm">
+  <div class="container">
+    <div class="events-grid events-grid-full" id="eventsContainer">
+
+      <!-- Event 1 -->
+      <article class="event-card" data-type="lecture" data-city="taipei">
+        <div class="event-img" style="background: linear-gradient(135deg, #2D6A4F 0%, #52B788 100%)">
+          <div class="event-category-tag">公益講座</div>
+          <div class="event-type-icon">🎤</div>
+          <div class="event-mode-badge">實體</div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-date">📅 2025/07/12（六）14:00</span>
+          </div>
+          <h3 class="event-title">氣候變遷與我們：每個人都能做的環境行動</h3>
+          <p class="event-desc">邀請三位環境科學家與社區實踐者，分享從個人到社區的氣候行動路徑。</p>
+          <div class="event-footer">
+            <div class="event-info">
+              <span class="event-location">📍 台北文化中心</span>
+              <span class="event-seats seats-low">僅剩 8 席</span>
+            </div>
+            <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Event 2 -->
+      <article class="event-card" data-type="workshop" data-city="online">
+        <div class="event-img" style="background: linear-gradient(135deg, #264653 0%, #2A9D8F 100%)">
+          <div class="event-category-tag">工作坊</div>
+          <div class="event-type-icon">🛠️</div>
+          <div class="event-mode-badge online">線上</div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-date">📅 2025/07/19（六）10:00</span>
+          </div>
+          <h3 class="event-title">非暴力溝通工作坊：用對話解決衝突</h3>
+          <p class="event-desc">透過角色扮演與實作練習，學習非暴力溝通（NVC）核心技巧。</p>
+          <div class="event-footer">
+            <div class="event-info">
+              <span class="event-location">💻 線上 / Zoom</span>
+              <span class="event-seats">剩餘 24 席</span>
+            </div>
+            <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Event 3 -->
+      <article class="event-card" data-type="community" data-city="taipei">
+        <div class="event-img" style="background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%)">
+          <div class="event-category-tag">社區行動</div>
+          <div class="event-type-icon">🌱</div>
+          <div class="event-mode-badge">實體</div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-date">📅 2025/07/26（六）09:00</span>
+          </div>
+          <h3 class="event-title">城市農耕體驗：帶孩子認識食物的旅程</h3>
+          <p class="event-desc">親子共同參與都市農園的播種、照顧與收穫，理解食物生命鏈。</p>
+          <div class="event-footer">
+            <div class="event-info">
+              <span class="event-location">📍 大安森林公園旁</span>
+              <span class="event-seats">剩餘 16 席</span>
+            </div>
+            <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Event 4 -->
+      <article class="event-card" data-type="volunteer" data-city="taichung">
+        <div class="event-img" style="background: linear-gradient(135deg, #E9C46A 0%, #F4A261 100%)">
+          <div class="event-category-tag">志工活動</div>
+          <div class="event-type-icon">🤝</div>
+          <div class="event-mode-badge">實體</div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-date">📅 2025/08/02（六）09:00</span>
+          </div>
+          <h3 class="event-title">長照陪伴志工培訓：學習成為有溫度的陪伴者</h3>
+          <p class="event-desc">針對有意投入老人長照陪伴服務的志工，提供系統性的培訓課程。</p>
+          <div class="event-footer">
+            <div class="event-info">
+              <span class="event-location">📍 台中市社福中心</span>
+              <span class="event-seats">剩餘 30 席</span>
+            </div>
+            <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Event 5 -->
+      <article class="event-card" data-type="lecture" data-city="online">
+        <div class="event-img" style="background: linear-gradient(135deg, #457B9D 0%, #1D3557 100%)">
+          <div class="event-category-tag">公益講座</div>
+          <div class="event-type-icon">🧠</div>
+          <div class="event-mode-badge online">線上</div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-date">📅 2025/08/09（六）14:00</span>
+          </div>
+          <h3 class="event-title">精神健康脫汙名化：如何支持身邊有需要的人</h3>
+          <p class="event-desc">心理師與倡議者共同探討精神健康的社會脈絡，以及如何在日常中給予支持。</p>
+          <div class="event-footer">
+            <div class="event-info">
+              <span class="event-location">💻 線上 / YouTube Live</span>
+              <span class="event-seats">不限名額</span>
+            </div>
+            <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Event 6 -->
+      <article class="event-card" data-type="workshop" data-city="kaohsiung">
+        <div class="event-img" style="background: linear-gradient(135deg, #6A0572 0%, #C77DFF 100%)">
+          <div class="event-category-tag">工作坊</div>
+          <div class="event-type-icon">🎨</div>
+          <div class="event-mode-badge">實體</div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-date">📅 2025/08/16（六）13:00</span>
+          </div>
+          <h3 class="event-title">藝術療癒工作坊：用創作表達內心的故事</h3>
+          <p class="event-desc">由藝術治療師帶領，透過繪畫與拼貼創作，探索情緒表達與自我療癒。</p>
+          <div class="event-footer">
+            <div class="event-info">
+              <span class="event-location">📍 高雄駁二特區</span>
+              <span class="event-seats">剩餘 12 席</span>
+            </div>
+            <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Event 7 -->
+      <article class="event-card" data-type="community" data-city="tainan">
+        <div class="event-img" style="background: linear-gradient(135deg, #606C38 0%, #A7C957 100%)">
+          <div class="event-category-tag">社區行動</div>
+          <div class="event-type-icon">♻️</div>
+          <div class="event-mode-badge">實體</div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-date">📅 2025/08/23（六）08:00</span>
+          </div>
+          <h3 class="event-title">社區淨灘行動：還給海洋一片乾淨的家</h3>
+          <p class="event-desc">集結社區夥伴一同清潔台南海岸線，並進行垃圾分類教育。</p>
+          <div class="event-footer">
+            <div class="event-info">
+              <span class="event-location">📍 台南安平海灘</span>
+              <span class="event-seats">剩餘 40 席</span>
+            </div>
+            <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Event 8 -->
+      <article class="event-card" data-type="lecture" data-city="taipei">
+        <div class="event-img" style="background: linear-gradient(135deg, #3D405B 0%, #81B29A 100%)">
+          <div class="event-category-tag">公益講座</div>
+          <div class="event-type-icon">📖</div>
+          <div class="event-mode-badge hybrid">混合</div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-date">📅 2025/09/06（六）14:00</span>
+          </div>
+          <h3 class="event-title">移工與我們：跨越距離的人情連結</h3>
+          <p class="event-desc">移工倡議者與新住民社工分享第一線故事，重新認識生活在台灣的東南亞朋友。</p>
+          <div class="event-footer">
+            <div class="event-info">
+              <span class="event-location">📍 台北 + 線上</span>
+              <span class="event-seats">剩餘 18 席</span>
+            </div>
+            <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Event 9 -->
+      <article class="event-card" data-type="volunteer" data-city="taipei">
+        <div class="event-img" style="background: linear-gradient(135deg, #E63946 0%, #457B9D 100%)">
+          <div class="event-category-tag">志工活動</div>
+          <div class="event-type-icon">📚</div>
+          <div class="event-mode-badge">實體</div>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">
+            <span class="event-date">📅 2025/09/13（六）10:00</span>
+          </div>
+          <h3 class="event-title">偏鄉遠距家教計畫：用一小時陪一個孩子學習</h3>
+          <p class="event-desc">透過線上視訊，每週一小時陪伴偏鄉孩童課業輔導，讓愛不因距離而中斷。</p>
+          <div class="event-footer">
+            <div class="event-info">
+              <span class="event-location">💻 線上視訊</span>
+              <span class="event-seats">剩餘 25 席</span>
+            </div>
+            <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Load More -->
+    <div class="load-more-wrap">
+      <button class="btn btn-outline btn-lg" id="loadMoreBtn" onclick="loadMore()">
+        載入更多活動
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo footer-logo">
+          <span class="logo-mark">&#9672;</span>
+          <span class="logo-text">善種 <em>SeedGood</em></span>
+        </a>
+        <p class="footer-tagline">播種善意，共創美好。<br>每個行動都是起點。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速連結</h4>
+        <ul>
+          <li><a href="index.html">回首頁</a></li>
+          <li><a href="impact.html">成果展示</a></li>
+          <li><a href="about.html">關於我們</a></li>
+          <li><a href="#">聯絡我們</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 善種 SeedGood 公益平台</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Filter functionality
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const cards = document.querySelectorAll('.event-card[data-type]');
+  
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      let visible = 0;
+      cards.forEach(card => {
+        const show = filter === 'all' || card.dataset.type === filter;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('resultsCount').textContent = `顯示 ${visible} 個活動`;
+    });
+  });
+
+  // City filter
+  document.getElementById('cityFilter').addEventListener('change', function() {
+    const city = this.value;
+    let visible = 0;
+    const activeType = document.querySelector('.filter-tab.active').dataset.filter;
+    cards.forEach(card => {
+      const typeOk = activeType === 'all' || card.dataset.type === activeType;
+      const cityOk = !city || card.dataset.city === city;
+      const show = typeOk && cityOk;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    document.getElementById('resultsCount').textContent = `顯示 ${visible} 個活動`;
+  });
+
+  // View toggle
+  document.getElementById('gridView').addEventListener('click', function() {
+    document.getElementById('eventsContainer').classList.remove('list-view');
+    this.classList.add('active');
+    document.getElementById('listView').classList.remove('active');
+  });
+  document.getElementById('listView').addEventListener('click', function() {
+    document.getElementById('eventsContainer').classList.add('list-view');
+    this.classList.add('active');
+    document.getElementById('gridView').classList.remove('active');
+  });
+
+  function loadMore() {
+    const btn = document.getElementById('loadMoreBtn');
+    btn.textContent = '載入中...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = '已顯示所有活動';
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
+    }, 1200);
+  }
+</script>
+</body>
+</html>
