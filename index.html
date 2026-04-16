@@ -7,9 +7,13 @@
   <meta name="description" content="善種是一個公益活動平台，匯聚公益講座與各式活動，每個行動都是改變的起點。">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 </head>
 <body>
+<a href="#main" class="skip-link">跳至主要內容</a>
+<div id="scroll-progress"></div>
+<canvas id="confetti-canvas"></canvas>
 
 <!-- Navigation -->
 <nav class="nav" id="nav">
@@ -41,7 +45,7 @@
 </div>
 
 <!-- Hero -->
-<section class="hero">
+<section class="hero" id="main">
   <div class="hero-bg">
     <div class="hero-shape hero-shape-1"></div>
     <div class="hero-shape hero-shape-2"></div>
@@ -54,6 +58,10 @@
     </div>
     <h1 class="hero-title">播種善意<br><span class="accent">每個行動</span><br>都是起點</h1>
     <p class="hero-subtitle">公益講座 × 社區活動 × 志工媒合<br>加入 3,200 位改變者的行列</p>
+    <div class="hero-search">
+      <input type="text" id="heroSearch" placeholder="搜尋活動、講座或工作坊..." aria-label="搜尋活動">
+      <button class="hero-search-btn" onclick="document.getElementById('heroSearch').dispatchEvent(new Event('input'))">搜尋</button>
+    </div>
     <div class="hero-cta">
       <a href="events.html" class="btn btn-primary btn-lg">探索近期活動</a>
       <a href="about.html" class="btn btn-ghost btn-lg">了解我們的使命</a>
@@ -124,11 +132,12 @@
 
       <article class="event-card featured">
         <div class="event-badge">本週精選</div>
-        <div class="event-img" style="background: linear-gradient(135deg, #2D6A4F 0%, #52B788 100%)">
+        <div class="event-img" style="background: linear-gradient(135deg, #009880 0%, #33C9B0 100%)">
           <div class="event-category-tag">公益講座</div>
           <div class="event-type-icon">🎤</div>
         </div>
         <div class="event-body">
+          <div class="event-countdown" data-event-date="2025-07-12T14:00:00"></div>
           <div class="event-meta">
             <span class="event-date">📅 2025年7月12日（六）</span>
             <span class="event-time">⏰ 14:00–16:30</span>
@@ -152,7 +161,7 @@
       </article>
 
       <article class="event-card">
-        <div class="event-img" style="background: linear-gradient(135deg, #264653 0%, #2A9D8F 100%)">
+        <div class="event-img" style="background: linear-gradient(135deg, #1C1C1C 0%, #00B89C 100%)">
           <div class="event-category-tag">工作坊</div>
           <div class="event-type-icon">🛠️</div>
         </div>
@@ -248,7 +257,7 @@
         <div class="quote-icon">"</div>
         <p class="testimonial-text">參加了善種的環境講座之後，我開始在社區推動垃圾減量計畫。沒想到一場兩小時的活動，讓我找到了人生下半段的方向。</p>
         <div class="testimonial-author">
-          <div class="author-avatar" style="background:#52B788">陳</div>
+          <div class="author-avatar" style="background:#33C9B0">陳</div>
           <div>
             <div class="author-name">陳雅婷</div>
             <div class="author-role">社區工作者 · 台北</div>
@@ -270,7 +279,7 @@
         <div class="quote-icon">"</div>
         <p class="testimonial-text">在這裡認識的朋友，讓我理解「改變世界」不是口號，而是每天可以做的小事。三年來我參加了 22 場活動，每次都有新收穫。</p>
         <div class="testimonial-author">
-          <div class="author-avatar" style="background:#264653">王</div>
+          <div class="author-avatar" style="background:#1C1C1C">王</div>
           <div>
             <div class="author-name">王書萱</div>
             <div class="author-role">環境倡議者 · 高雄</div>
@@ -282,7 +291,7 @@
 </section>
 
 <!-- Newsletter -->
-<section class="newsletter-section">
+<section class="newsletter-section" id="newsletter">
   <div class="container">
     <div class="newsletter-inner">
       <div class="newsletter-text">
@@ -352,6 +361,33 @@
     </div>
   </div>
 </footer>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="搜尋結果">
+  <div class="search-results-box">
+    <div class="search-results-title">
+      <span>搜尋結果</span>
+      <button class="search-close" id="searchClose" aria-label="關閉搜尋">×</button>
+    </div>
+    <div id="searchResultsBox"></div>
+  </div>
+</div>
+
+<!-- Floating Action Button -->
+<div class="fab-container">
+  <div class="fab-menu" id="fabMenu">
+    <a class="fab-item" href="events.html">
+      <span>📅</span> 查看所有活動
+    </a>
+    <a class="fab-item" href="#newsletter">
+      <span>✉️</span> 訂閱電子報
+    </a>
+    <a class="fab-item" href="about.html#partner">
+      <span>🤝</span> 成為合作夥伴
+    </a>
+  </div>
+  <button class="fab-main" id="fabMain" aria-label="快速操作選單">+</button>
+</div>
 
 <script src="js/main.js"></script>
 </body>

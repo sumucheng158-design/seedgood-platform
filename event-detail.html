@@ -7,9 +7,13 @@
   <meta name="description" content="邀請三位環境科學家與社區實踐者，分享從個人到社區的氣候行動路徑，並實際操作碳足跡計算工具。">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 </head>
 <body>
+<a href="#main" class="skip-link">跳至主要內容</a>
+<div id="scroll-progress"></div>
+<canvas id="confetti-canvas"></canvas>
 
 <nav class="nav" id="nav">
   <div class="nav-inner container">
@@ -39,7 +43,7 @@
 
 <!-- Event Hero -->
 <div class="event-hero">
-  <div class="event-hero-bg" style="background: linear-gradient(135deg, #1a4a32 0%, #2D6A4F 50%, #52B788 100%)">
+  <div class="event-hero-bg" style="background: linear-gradient(135deg, #0d2a24 0%, #009880 50%, #33C9B0 100%)">
     <div class="event-hero-overlay"></div>
   </div>
   <div class="container event-hero-content">
@@ -369,6 +373,33 @@
     </div>
   </div>
 </footer>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="搜尋結果">
+  <div class="search-results-box">
+    <div class="search-results-title">
+      <span>搜尋結果</span>
+      <button class="search-close" id="searchClose" aria-label="關閉搜尋">×</button>
+    </div>
+    <div id="searchResultsBox"></div>
+  </div>
+</div>
+
+<!-- Floating Action Button -->
+<div class="fab-container">
+  <div class="fab-menu" id="fabMenu">
+    <a class="fab-item" href="events.html">
+      <span>📅</span> 查看所有活動
+    </a>
+    <a class="fab-item" href="index.html#newsletter">
+      <span>✉️</span> 訂閱電子報
+    </a>
+    <a class="fab-item" href="about.html#partner">
+      <span>🤝</span> 成為合作夥伴
+    </a>
+  </div>
+  <button class="fab-main" id="fabMain" aria-label="快速操作選單">+</button>
+</div>
 
 <script src="js/main.js"></script>
 <script>

@@ -7,9 +7,13 @@
   <meta name="description" content="探索所有公益講座、志工活動、工作坊與社區行動，找到你想參與的善種活動。">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 </head>
 <body>
+<a href="#main" class="skip-link">跳至主要內容</a>
+<div id="scroll-progress"></div>
+<canvas id="confetti-canvas"></canvas>
 
 <nav class="nav" id="nav">
   <div class="nav-inner container">
@@ -44,6 +48,10 @@
     <p class="section-eyebrow">探索與參與</p>
     <h1 class="page-title">所有活動</h1>
     <p class="page-subtitle">公益講座、志工活動、工作坊與社區行動——找到讓你心動的那一場</p>
+    <div class="events-search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="eventsSearch" placeholder="搜尋活動名稱、地點..." aria-label="搜尋活動">
+    </div>
   </div>
 </div>
 
@@ -97,13 +105,13 @@
 </div>
 
 <!-- Events Grid -->
-<section class="section-sm">
+<section class="section-sm" id="main">
   <div class="container">
     <div class="events-grid events-grid-full" id="eventsContainer">
 
       <!-- Event 1 -->
       <article class="event-card" data-type="lecture" data-city="taipei">
-        <div class="event-img" style="background: linear-gradient(135deg, #2D6A4F 0%, #52B788 100%)">
+        <div class="event-img" style="background: linear-gradient(135deg, #009880 0%, #33C9B0 100%)">
           <div class="event-category-tag">公益講座</div>
           <div class="event-type-icon">🎤</div>
           <div class="event-mode-badge">實體</div>
@@ -126,7 +134,7 @@
 
       <!-- Event 2 -->
       <article class="event-card" data-type="workshop" data-city="online">
-        <div class="event-img" style="background: linear-gradient(135deg, #264653 0%, #2A9D8F 100%)">
+        <div class="event-img" style="background: linear-gradient(135deg, #1C1C1C 0%, #00B89C 100%)">
           <div class="event-category-tag">工作坊</div>
           <div class="event-type-icon">🛠️</div>
           <div class="event-mode-badge online">線上</div>
@@ -344,6 +352,33 @@
     </div>
   </div>
 </footer>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-label="搜尋結果">
+  <div class="search-results-box">
+    <div class="search-results-title">
+      <span>搜尋結果</span>
+      <button class="search-close" id="searchClose" aria-label="關閉搜尋">×</button>
+    </div>
+    <div id="searchResultsBox"></div>
+  </div>
+</div>
+
+<!-- Floating Action Button -->
+<div class="fab-container">
+  <div class="fab-menu" id="fabMenu">
+    <a class="fab-item" href="events.html">
+      <span>📅</span> 查看所有活動
+    </a>
+    <a class="fab-item" href="index.html#newsletter">
+      <span>✉️</span> 訂閱電子報
+    </a>
+    <a class="fab-item" href="about.html#partner">
+      <span>🤝</span> 成為合作夥伴
+    </a>
+  </div>
+  <button class="fab-main" id="fabMain" aria-label="快速操作選單">+</button>
+</div>
 
 <script src="js/main.js"></script>
 <script>
