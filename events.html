@@ -110,10 +110,10 @@
     <div class="events-grid events-grid-full" id="eventsContainer">
 
       <!-- Event 1 -->
-      <article class="event-card" data-type="lecture" data-city="taipei">
+      <article class="event-card" data-type="lecture" data-city="taipei" data-mode="physical" data-event-id="ev-climate">
         <div class="event-img" style="background: linear-gradient(135deg, #009880 0%, #33C9B0 100%)">
           <div class="event-category-tag">公益講座</div>
-          <div class="event-type-icon">🎤</div>
+          <div class="event-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
           <div class="event-mode-badge">實體</div>
         </div>
         <div class="event-body">
@@ -125,7 +125,7 @@
           <div class="event-footer">
             <div class="event-info">
               <span class="event-location">📍 台北文化中心</span>
-              <span class="event-seats seats-low">僅剩 8 席</span>
+              <div data-seats-used="92" data-seats-total="100"></div>
             </div>
             <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
           </div>
@@ -133,10 +133,10 @@
       </article>
 
       <!-- Event 2 -->
-      <article class="event-card" data-type="workshop" data-city="online">
+      <article class="event-card" data-type="workshop" data-city="online" data-mode="online" data-event-id="ev-nvc">
         <div class="event-img" style="background: linear-gradient(135deg, #1C1C1C 0%, #00B89C 100%)">
           <div class="event-category-tag">工作坊</div>
-          <div class="event-type-icon">🛠️</div>
+          <div class="event-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
           <div class="event-mode-badge online">線上</div>
         </div>
         <div class="event-body">
@@ -148,7 +148,7 @@
           <div class="event-footer">
             <div class="event-info">
               <span class="event-location">💻 線上 / Zoom</span>
-              <span class="event-seats">剩餘 24 席</span>
+              <div data-seats-used="56" data-seats-total="80"></div>
             </div>
             <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
           </div>
@@ -156,10 +156,10 @@
       </article>
 
       <!-- Event 3 -->
-      <article class="event-card" data-type="community" data-city="taipei">
+      <article class="event-card" data-type="community" data-city="taipei" data-mode="physical" data-event-id="ev-farm">
         <div class="event-img" style="background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%)">
           <div class="event-category-tag">社區行動</div>
-          <div class="event-type-icon">🌱</div>
+          <div class="event-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
           <div class="event-mode-badge">實體</div>
         </div>
         <div class="event-body">
@@ -171,7 +171,7 @@
           <div class="event-footer">
             <div class="event-info">
               <span class="event-location">📍 大安森林公園旁</span>
-              <span class="event-seats">剩餘 16 席</span>
+              <div data-seats-used="44" data-seats-total="60"></div>
             </div>
             <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
           </div>
@@ -179,10 +179,10 @@
       </article>
 
       <!-- Event 4 -->
-      <article class="event-card" data-type="volunteer" data-city="taichung">
+      <article class="event-card" data-type="volunteer" data-city="taichung" data-mode="physical" data-event-id="ev-longcare">
         <div class="event-img" style="background: linear-gradient(135deg, #E9C46A 0%, #F4A261 100%)">
           <div class="event-category-tag">志工活動</div>
-          <div class="event-type-icon">🤝</div>
+          <div class="event-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11.5V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v1.4"/><path d="M14 10V8a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 9.9V9a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v5"/><path d="M6 14v0a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></div>
           <div class="event-mode-badge">實體</div>
         </div>
         <div class="event-body">
@@ -194,7 +194,7 @@
           <div class="event-footer">
             <div class="event-info">
               <span class="event-location">📍 台中市社福中心</span>
-              <span class="event-seats">剩餘 30 席</span>
+              <div data-seats-used="50" data-seats-total="80"></div>
             </div>
             <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
           </div>
@@ -202,7 +202,7 @@
       </article>
 
       <!-- Event 5 -->
-      <article class="event-card" data-type="lecture" data-city="online">
+      <article class="event-card" data-type="lecture" data-city="online" data-mode="online" data-event-id="ev-river">
         <div class="event-img" style="background: linear-gradient(135deg, #457B9D 0%, #1D3557 100%)">
           <div class="event-category-tag">公益講座</div>
           <div class="event-type-icon">🧠</div>
@@ -225,7 +225,7 @@
       </article>
 
       <!-- Event 6 -->
-      <article class="event-card" data-type="workshop" data-city="kaohsiung">
+      <article class="event-card" data-type="workshop" data-city="kaohsiung" data-mode="physical" data-event-id="ev-design">
         <div class="event-img" style="background: linear-gradient(135deg, #6A0572 0%, #C77DFF 100%)">
           <div class="event-category-tag">工作坊</div>
           <div class="event-type-icon">🎨</div>
@@ -240,7 +240,7 @@
           <div class="event-footer">
             <div class="event-info">
               <span class="event-location">📍 高雄駁二特區</span>
-              <span class="event-seats">剩餘 12 席</span>
+              <div data-seats-used="68" data-seats-total="80"></div>
             </div>
             <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
           </div>
@@ -248,10 +248,10 @@
       </article>
 
       <!-- Event 7 -->
-      <article class="event-card" data-type="community" data-city="tainan">
+      <article class="event-card" data-type="community" data-city="tainan" data-mode="physical" data-event-id="ev-beach">
         <div class="event-img" style="background: linear-gradient(135deg, #606C38 0%, #A7C957 100%)">
           <div class="event-category-tag">社區行動</div>
-          <div class="event-type-icon">♻️</div>
+          <div class="event-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></div>
           <div class="event-mode-badge">實體</div>
         </div>
         <div class="event-body">
@@ -263,7 +263,7 @@
           <div class="event-footer">
             <div class="event-info">
               <span class="event-location">📍 台南安平海灘</span>
-              <span class="event-seats">剩餘 40 席</span>
+              <div data-seats-used="40" data-seats-total="80"></div>
             </div>
             <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
           </div>
@@ -271,10 +271,10 @@
       </article>
 
       <!-- Event 8 -->
-      <article class="event-card" data-type="lecture" data-city="taipei">
+      <article class="event-card" data-type="lecture" data-city="taipei" data-mode="physical" data-event-id="ev-migrant">
         <div class="event-img" style="background: linear-gradient(135deg, #3D405B 0%, #81B29A 100%)">
           <div class="event-category-tag">公益講座</div>
-          <div class="event-type-icon">📖</div>
+          <div class="event-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
           <div class="event-mode-badge hybrid">混合</div>
         </div>
         <div class="event-body">
@@ -286,7 +286,7 @@
           <div class="event-footer">
             <div class="event-info">
               <span class="event-location">📍 台北 + 線上</span>
-              <span class="event-seats">剩餘 18 席</span>
+              <div data-seats-used="62" data-seats-total="80"></div>
             </div>
             <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
           </div>
@@ -294,10 +294,10 @@
       </article>
 
       <!-- Event 9 -->
-      <article class="event-card" data-type="volunteer" data-city="taipei">
+      <article class="event-card" data-type="volunteer" data-city="taipei" data-mode="physical" data-event-id="ev-tutor">
         <div class="event-img" style="background: linear-gradient(135deg, #E63946 0%, #457B9D 100%)">
           <div class="event-category-tag">志工活動</div>
-          <div class="event-type-icon">📚</div>
+          <div class="event-type-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
           <div class="event-mode-badge">實體</div>
         </div>
         <div class="event-body">
@@ -309,7 +309,7 @@
           <div class="event-footer">
             <div class="event-info">
               <span class="event-location">💻 線上視訊</span>
-              <span class="event-seats">剩餘 25 席</span>
+              <div data-seats-used="55" data-seats-total="80"></div>
             </div>
             <a href="event-detail.html" class="btn btn-primary btn-sm">報名</a>
           </div>
@@ -382,52 +382,6 @@
 
 <script src="js/main.js"></script>
 <script>
-  // Filter functionality
-  const filterTabs = document.querySelectorAll('.filter-tab');
-  const cards = document.querySelectorAll('.event-card[data-type]');
-  
-  filterTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      filterTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const filter = tab.dataset.filter;
-      let visible = 0;
-      cards.forEach(card => {
-        const show = filter === 'all' || card.dataset.type === filter;
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-      document.getElementById('resultsCount').textContent = `顯示 ${visible} 個活動`;
-    });
-  });
-
-  // City filter
-  document.getElementById('cityFilter').addEventListener('change', function() {
-    const city = this.value;
-    let visible = 0;
-    const activeType = document.querySelector('.filter-tab.active').dataset.filter;
-    cards.forEach(card => {
-      const typeOk = activeType === 'all' || card.dataset.type === activeType;
-      const cityOk = !city || card.dataset.city === city;
-      const show = typeOk && cityOk;
-      card.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-    document.getElementById('resultsCount').textContent = `顯示 ${visible} 個活動`;
-  });
-
-  // View toggle
-  document.getElementById('gridView').addEventListener('click', function() {
-    document.getElementById('eventsContainer').classList.remove('list-view');
-    this.classList.add('active');
-    document.getElementById('listView').classList.remove('active');
-  });
-  document.getElementById('listView').addEventListener('click', function() {
-    document.getElementById('eventsContainer').classList.add('list-view');
-    this.classList.add('active');
-    document.getElementById('gridView').classList.remove('active');
-  });
-
   function loadMore() {
     const btn = document.getElementById('loadMoreBtn');
     btn.textContent = '載入中...';

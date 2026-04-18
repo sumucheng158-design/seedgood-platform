@@ -189,6 +189,58 @@
       </div>
     </div>
 
+    <!-- Carbon Footprint Calculator -->
+    <div class="detail-section">
+      <h2>🌱 碳足跡小計算機</h2>
+      <p>這場活動鼓勵你從自身開始行動。試試計算你目前的年碳排量，找到改變的切入點：</p>
+      <div class="carbon-calc" id="carbonCalc">
+        <h3>個人碳足跡估算</h3>
+        <div class="calc-row">
+          <label>每年搭飛機次數</label>
+          <div class="calc-row-inner">
+            <input type="range" id="calcFlights" min="0" max="20" value="2" step="1">
+            <span class="calc-val" id="calcFlightsOut">2</span> 次
+          </div>
+        </div>
+        <div class="calc-row">
+          <label>每週吃肉天數</label>
+          <div class="calc-row-inner">
+            <input type="range" id="calcMeat" min="0" max="7" value="4" step="1">
+            <span class="calc-val" id="calcMeatOut">4</span> 天
+          </div>
+        </div>
+        <div class="calc-row">
+          <label>每月用電度數</label>
+          <div class="calc-row-inner">
+            <input type="range" id="calcElec" min="0" max="500" value="200" step="10">
+            <span class="calc-val" id="calcElecOut">200</span> 度
+          </div>
+        </div>
+        <div class="calc-result">
+          <div>
+            <div class="calc-num" id="calcNum">4,200</div>
+            <div class="calc-unit">kg CO₂e / 年</div>
+          </div>
+          <div class="calc-bar-wrap">
+            <div class="calc-bar"><div class="calc-bar-fill" style="width:36%"></div></div>
+            <div class="calc-compare" id="calcCompare">比台灣平均低 64%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add to Calendar + Share -->
+    <div class="detail-section" style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;border-bottom:none;padding-bottom:0">
+      <button class="cal-btn" onclick="addToCalendar('氣候變遷與我們：每個人都能做的環境行動','2025-07-12T14:00:00','2025-07-12T16:30:00','台北市文化中心 301室','公益講座，由善種 SeedGood 主辦')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        加入行事曆
+      </button>
+      <button class="share-gen-btn" onclick="generateShareCard()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        分享這場活動
+      </button>
+    </div>
+
   </div>
 
   <!-- Right: Register Card (Sticky) -->
@@ -328,8 +380,12 @@
       <div class="register-success hidden" id="registerSuccess">
         <div class="success-icon">🌱</div>
         <h4>報名成功！</h4>
-        <p>確認信已寄送至你的信箱，記得加入日曆提醒。</p>
+        <p>確認信已寄送至你的信箱。</p>
         <p class="success-sub">你的善種正在發芽 ✨</p>
+        <button class="cal-btn" style="width:100%;justify-content:center;margin-bottom:.75rem" onclick="addToCalendar('氣候變遷與我們：每個人都能做的環境行動','2025-07-12T14:00:00','2025-07-12T16:30:00','台北市文化中心 301室','善種 SeedGood 公益講座')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          加入行事曆提醒
+        </button>
         <a href="events.html" class="btn btn-outline btn-full">探索更多活動</a>
       </div>
 
@@ -406,10 +462,7 @@
   function goToStep2() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-    if (!name || !email) {
-      alert('請填寫必填欄位');
-      return;
-    }
+    if (!name || !email) { showToast('請填寫姓名與電子信箱', '⚠️'); return; }
     document.getElementById('step1Form').classList.add('hidden');
     document.getElementById('step2Form').classList.remove('hidden');
     document.getElementById('step1Indicator').classList.remove('active');
@@ -435,33 +488,17 @@
     document.getElementById('step3Indicator').classList.add('active');
   }
 
-  function goToStep2() {
-    if (document.getElementById('step3Form') && !document.getElementById('step3Form').classList.contains('hidden')) {
-      document.getElementById('step3Form').classList.add('hidden');
-      document.getElementById('step2Form').classList.remove('hidden');
-      document.getElementById('step3Indicator').classList.remove('active');
-      document.getElementById('step2Indicator').classList.add('active');
-      document.getElementById('step2Indicator').classList.remove('done');
-    } else {
-      document.getElementById('step2Form').classList.add('hidden');
-      document.getElementById('step1Form').classList.remove('hidden');
-      document.getElementById('step2Indicator').classList.remove('active');
-      document.getElementById('step1Indicator').classList.add('active');
-      document.getElementById('step1Indicator').classList.remove('done');
-    }
-  }
-
   function submitRegister() {
     if (!document.getElementById('agreeTerms').checked) {
-      alert('請同意活動規範及隱私政策');
-      return;
+      showToast('請同意活動規範及隱私政策', '⚠️'); return;
     }
     document.getElementById('step3Form').classList.add('hidden');
     document.getElementById('registerSuccess').classList.remove('hidden');
     document.getElementById('registerSteps').style.display = 'none';
+    launchConfetti();
+    showToast('報名成功！期待在活動中見到你 🎉', '✓');
   }
 
-  // Mode selection
   document.querySelectorAll('input[name="mode"]').forEach(radio => {
     radio.addEventListener('change', function() {
       document.getElementById('physicalNote').classList.toggle('hidden', this.value !== 'physical');
@@ -472,18 +509,48 @@
   function shareTo(platform) {
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent('氣候變遷與我們：每個人都能做的環境行動 - 善種 SeedGood');
-    if (platform === 'facebook') {
-      window.open('https://www.facebook.com/sharer/sharer.php?u=' + url);
-    } else if (platform === 'line') {
-      window.open('https://social-plugins.line.me/lineit/share?url=' + url);
-    }
+    if (platform === 'facebook') window.open('https://www.facebook.com/sharer/sharer.php?u=' + url);
+    else if (platform === 'line') window.open('https://social-plugins.line.me/lineit/share?url=' + url);
   }
 
   function copyLink() {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      alert('連結已複製！');
-    });
+    navigator.clipboard.writeText(window.location.href).then(() => showToast('連結已複製！', '📋'));
   }
+
+  // Wire up carbon calculator sliders
+  (function() {
+    const sliders = [
+      { id: 'calcFlights', outId: 'calcFlightsOut' },
+      { id: 'calcMeat',    outId: 'calcMeatOut' },
+      { id: 'calcElec',    outId: 'calcElecOut' },
+    ];
+    function compute() {
+      const flights = parseFloat(document.getElementById('calcFlights')?.value || 0);
+      const meat    = parseFloat(document.getElementById('calcMeat')?.value || 0);
+      const elec    = parseFloat(document.getElementById('calcElec')?.value || 0);
+      const total   = Math.round(flights * 900 + meat * 550 + elec * 18);
+      const avg     = 11800;
+      const pct     = Math.round(total / avg * 100);
+      const numEl   = document.getElementById('calcNum');
+      const barEl   = document.querySelector('.calc-bar-fill');
+      const cmpEl   = document.getElementById('calcCompare');
+      if (numEl) numEl.textContent = total.toLocaleString();
+      if (barEl) barEl.style.width = Math.min(100, pct) + '%';
+      if (cmpEl) cmpEl.textContent = pct < 100
+        ? '比台灣平均低 ' + (100 - pct) + '%'
+        : '比台灣平均高 ' + (pct - 100) + '%';
+    }
+    sliders.forEach(({ id, outId }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', () => {
+        const out = document.getElementById(outId);
+        if (out) out.textContent = el.value;
+        compute();
+      });
+    });
+    compute();
+  })();
 </script>
 </body>
 </html>

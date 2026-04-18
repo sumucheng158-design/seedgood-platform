@@ -144,10 +144,48 @@
       <div class="partner-logo">台灣心理健康聯盟</div>
       <div class="partner-logo">台灣移工聯盟</div>
     </div>
-    <div class="partner-cta">
+    <div class="partner-cta" id="partner">
       <h3>想成為善種的合作夥伴？</h3>
       <p>無論是公益組織、企業 CSR，或是想主辦活動的個人講者，我們都歡迎你的加入。</p>
-      <a href="mailto:partner@seedgood.tw" class="btn btn-primary btn-lg">聯繫我們</a>
+    </div>
+
+    <!-- Host Application Form -->
+    <div class="host-form-section" id="host-apply" style="margin-top:2rem">
+      <h3>活動主辦方申請</h3>
+      <p class="form-desc">填寫以下表單，我們將在 3 個工作天內與你聯繫，一起播種更多善意。</p>
+      <form class="host-form" onsubmit="submitHostApplication(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="hName">姓名 / 組織名稱 <span class="required">*</span></label>
+            <input type="text" id="hName" placeholder="請輸入" required>
+          </div>
+          <div class="form-group">
+            <label for="hEmail">聯絡信箱 <span class="required">*</span></label>
+            <input type="email" id="hEmail" placeholder="partner@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hTitle">活動主題</label>
+          <input type="text" id="hTitle" placeholder="你想辦什麼樣的活動？">
+        </div>
+        <div class="form-group">
+          <label for="hType">活動類型</label>
+          <select id="hType">
+            <option value="">請選擇</option>
+            <option>公益講座</option>
+            <option>工作坊</option>
+            <option>志工活動</option>
+            <option>社區行動</option>
+            <option>線上活動</option>
+            <option>其他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="hDesc">活動描述 / 合作想法</label>
+          <textarea id="hDesc" rows="3" placeholder="簡短描述你的活動概念、目標對象、預計時間..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="align-self:flex-start">送出申請 →</button>
+      </form>
     </div>
   </div>
 </section>
@@ -205,5 +243,22 @@
 </div>
 
 <script src="js/main.js"></script>
-</body>
+<script>
+  function submitHostApplication(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = '送出中...';
+    btn.disabled = true;
+    setTimeout(() => {
+      e.target.innerHTML = `
+        <div style="text-align:center;padding:2.5rem 1rem">
+          <div style="font-size:3rem;margin-bottom:1rem">🌱</div>
+          <h3 style="font-size:1.4rem;margin-bottom:.6rem">申請已送出！</h3>
+          <p style="color:var(--text-secondary);line-height:1.8">我們將在 3 個工作天內與你聯絡。<br>感謝你願意一起播種善意！</p>
+        </div>`;
+      launchConfetti();
+      showToast('申請已收到！我們很快會與你聯繫', '🎉');
+    }, 1400);
+  }
+</script>
 </html>
